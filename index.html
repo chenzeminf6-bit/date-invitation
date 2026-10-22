@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fff3f6">
+<title>要不要和我约会？♡</title>
+<style>
+:root{--pink:#ff6488;--ink:#34333b;--muted:#776f78;--line:#f4dce3}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#fff7f8,#fff0f4);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+header{text-align:center;padding:20px 16px 8px;color:#d94e73;font-weight:800}main{width:min(720px,100%);margin:auto;padding:12px 15px 35px}
+.page{display:none}.page.active{display:block}.card{background:#ffffffed;border:1px solid var(--line);border-radius:25px;padding:23px 18px;margin:12px 0;box-shadow:0 10px 32px #8e3c5410}
+.hero,.center{text-align:center}.hero{padding:32px 18px 24px}.heart{font-size:46px}h1{font-size:clamp(27px,7vw,39px);line-height:1.3;margin:10px 0}h2{font-size:23px}p{line-height:1.75;color:var(--muted)}
+button,.btn{display:block;width:100%;text-align:center;text-decoration:none;border:0;border-radius:15px;padding:15px 16px;margin-top:12px;font-weight:750;font-size:16px;min-height:50px;cursor:pointer}
+.primary{background:var(--pink);color:white}.soft{background:#fff0f4;color:#b74465;border:1px solid #ffd4df}.plain{background:white;color:#68606a;border:1px solid var(--line)}.back{display:inline-block;width:auto;background:transparent;color:#8c6b77;padding:8px 0;min-height:0}
+.option{display:flex;align-items:flex-start;gap:10px;border:1px solid var(--line);border-radius:16px;padding:14px;margin:10px 0;background:white}.option input{width:20px;height:20px;accent-color:var(--pink);margin-top:3px;flex-shrink:0}.option strong{display:block;margin-bottom:4px}.option span{font-size:14px;color:var(--muted);line-height:1.55}
+.photo-area{border:1.5px dashed #efb9c8;border-radius:17px;background:#fff8fa;padding:15px;margin-top:20px}.photo-area h3{font-size:16px;margin:0 0 5px}.photo-area p{font-size:13px;margin:0 0 12px}.fixed-photo{margin-top:10px}.fixed-photo img{display:block;width:100%;max-height:340px;object-fit:cover;border-radius:14px}.photo-placeholder{display:none;text-align:center;border:1px dashed #e9b7c6;border-radius:14px;background:#fff;padding:24px 12px;color:#92717d;font-size:13px;line-height:1.8}.photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px}.photo-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px}
+.clock{width:145px;height:145px;border:7px solid #ffb5c5;border-radius:50%;margin:25px auto;position:relative;background:#fff7f9;box-shadow:0 0 0 10px #ffe8ee}.clock:before{content:"";position:absolute;width:5px;height:43px;border-radius:6px;background:#df6b8b;left:calc(50% - 2px);top:23px;transform-origin:bottom;animation:tick 4s linear infinite}.clock:after{content:"";position:absolute;width:35px;height:5px;border-radius:6px;background:#df6b8b;left:50%;top:calc(50% - 2px);transform:rotate(-30deg);transform-origin:left}@keyframes tick{to{transform:rotate(360deg)}}
+textarea{width:100%;min-height:110px;border:1px solid #ead4db;background:white;border-radius:14px;padding:13px;font:inherit}.notice{display:none;background:#fff2f5;color:#b74465;padding:13px;border-radius:13px;margin-top:13px;line-height:1.65}.small{font-size:12px!important}footer{text-align:center;padding:0 10px 25px;font-size:12px;color:#b29aa3}
+@media(min-width:560px){.photo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<header>♡ 给你的一份小邀请 ♡</header>
+<main>
+<section class="page active" id="home"><div class="card hero">
+<div class="heart">💌</div><p>我有一个小小的问题想问你</p><h1>你要不要和我约会？</h1><p>选一个你真实想选的答案就好。♡</p>
+<button class="primary" type="button" onclick="chooseAnswer('同意')">好呀！我同意 💗</button>
+<button class="soft" type="button" onclick="chooseAnswer('再想想看')">再想想看 ⏸️</button>
+<button class="plain" type="button" onclick="chooseAnswer('不同意')">不同意</button>
+<div class="photo-area"><h3>📷 给你的一张小照片</h3><div class="fixed-photo"><img src="photo-home.jpeg" alt="首页照片" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="photo-placeholder">照片暂时无法显示，请稍后再试。</div></div></div>
+</div></section>
+
+<section class="page" id="agree"><button class="back" type="button" onclick="go('home')">← 返回首页</button><div class="card">
+<div class="center"><div class="heart">🥰</div><h1>太好啦！那我们去约会吧</h1><p>选一个你更喜欢的安排。</p></div>
+<label class="option"><input type="radio" name="date" value="11月7日去水上乐园"><div><strong>🌊 11月7日｜水上乐园</strong><span>一起玩水，开心地过一天。</span></div></label>
+<label class="option"><input type="radio" name="date" value="11月8日下午骑双人自行车，之后晚餐"><div><strong>🚲 11月8日下午｜骑双人自行车＋晚餐</strong><span>一起骑车兜风，再找一家喜欢的餐厅。</span></div></label>
+<p><strong>🍽️ 晚餐选择（如果选 11月8日）</strong></p>
+<label class="option"><input type="radio" name="dinner" value="麦当劳"><div><strong>🍔 麦当劳</strong><span>简单轻松</span></div></label>
+<label class="option"><input type="radio" name="dinner" value="麻辣香锅"><div><strong>🌶️ 麻辣香锅</strong><span>选喜欢的配料</span></div></label>
+<label class="option"><input type="radio" name="dinner" value="海底捞"><div><strong>🍲 海底捞</strong><span>一起吃火锅</span></div></label>
+<button class="primary" type="button" onclick="submitPlan()">确认约会安排 ♡</button><div id="planNotice" class="notice"></div>
+<div class="photo-area"><h3>📷 约会照片</h3><div class="fixed-photo"><img src="photo-agree.jpeg" alt="约会页面照片" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="photo-placeholder">照片暂时无法显示，请稍后再试。</div></div></div>
+</div></section>
+
+<section class="page" id="think"><button class="back" type="button" onclick="go('home')">← 返回首页</button><div class="card center">
+<div class="heart">🌷</div><h1>没关系，可以慢慢想</h1><p>不着急，希望你按照自己的感受来决定。</p><div class="clock"></div><h2>暂停一下 ⏸️</h2><p>让时间慢一点，答案不用急着给。</p>
+<div class="photo-area" style="text-align:left"><h3>📷 留一点时间</h3><div class="fixed-photo"><img src="photo-think.jpeg" alt="再想想看页面照片" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="photo-placeholder">照片暂时无法显示，请稍后再试。</div></div></div>
+</div></section>
+
+<section class="page" id="no"><button class="back" type="button" onclick="go('home')">← 返回首页</button><div class="card">
+<div class="center"><div class="heart">🌼</div><h1>谢谢你告诉我</h1><p>如果你愿意，可以告诉我原因。我会认真看，也尊重你的想法。</p></div>
+<label for="reason"><strong>你不想约会的原因是……（选填）</strong></label><textarea id="reason" maxlength="1200" placeholder="可以写下你的想法"></textarea>
+<button class="primary" type="button" onclick="submitReason()">知道啦</button><div id="noNotice" class="notice"></div>
+<div class="photo-area"><h3>📷 一张小小的回忆</h3><div class="fixed-photo"><img src="photo-no.JPG" alt="不同意页面照片" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="photo-placeholder">照片暂时无法显示，请稍后再试。</div></div></div>
+</div></section>
+
+</main><footer>愿每一个答案都出自真心 ♡</footer>
+<script>
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+function chooseAnswer(answer){if(answer==='同意'){go('agree');return}if(answer==='再想想看'){go('think');return}go('no')}
+function submitPlan(){
+ const d=document.querySelector('input[name="date"]:checked');
+ const meal=document.querySelector('input[name="dinner"]:checked');
+ const notice=document.getElementById('planNotice');notice.style.display='block';
+ if(!d){notice.textContent='请先选择一个约会安排。';return}
+ if(d.value.includes('11月8日')&&!meal){notice.textContent='请再选择一个晚餐选项。';return}
+ const dinner=meal?meal.value:'（11月7日水上乐园，不需要选择晚餐）';
+ notice.textContent='约会安排已选好：'+d.value+(d.value.includes('11月8日')?'；晚餐：'+dinner:'')+'。记得把你的选择告诉我哦 ♡';
+}
+function submitReason(){const notice=document.getElementById('noNotice');notice.style.display='block';notice.textContent='谢谢你愿意认真考虑。这个内容只留在当前页面，不会发送给任何人。';}
+</script>
+</body></html>
